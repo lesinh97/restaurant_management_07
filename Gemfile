@@ -14,6 +14,12 @@ gem "turbolinks", "~> 5"
 gem "jbuilder", "~> 2.5"
 gem "rubocop", "~> 0.49.1", require: false
 gem "config"
+gem "therubyracer"
+gem "less-rails-bootstrap"
+gem "font-awesome-rails"
+gem "jquery-easing-rails"
+gem "jquery-rails"
+gem "rails-ujs"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

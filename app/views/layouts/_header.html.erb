@@ -1,0 +1,46 @@
+<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+        <i class="fa fa-bars"></i>
+      </button>
+      <a class="navbar-brand page-scroll" href="#page-top">
+        <span class="light"><%= t "nav_bar_name_first" %></span><%= t "nav_bar_name_second" %>
+      </a>
+    </div>
+    <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+      <ul class="nav navbar-nav">
+        <li class="hidden">
+          <a href="#page-top"></a>
+        </li>
+        <li>
+          <a class="page-scroll" href="#about"><%= t "nav_bar_about" %></a>
+        </li>
+        <li>
+          <a class="page-scroll" href="#booking"><%= t "nav_bar_bookin" %></a>
+        </li>
+        <li>
+          <a class="page-scroll" href="#contact"><%= t "nav_bar_contact" %></a>
+        </li>
+        <li>
+          <a class="page-scroll" href="#"><%= t "nav_bar_login" %></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<header class="intro">
+  <div class="intro-body">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <h1 class="brand-heading"><%= (t "nav_bar_name_first") + (t "nav_bar_name_second") %></h1>
+          <p class="intro-text"><%= t "intro_text_header" %><br><%= t "intro_text_content" %></p>
+          <a href="#about" class="btn btn-circle page-scroll">
+            <i class="fa fa-angle-double-down animated"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

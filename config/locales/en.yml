@@ -1,2 +1,25 @@
 en:
   main_title: "Lotus Hotel"
+  nav_bar_name_first: "Lotus "
+  nav_bar_name_second: "Hotel"
+  nav_bar_about: "About"
+  nav_bar_bookin: "Booking"
+  nav_bar_login: "Login"
+  nav_bar_contact: "Contact"
+  intro_text_header: "You are invited."
+  intro_text_content: "We know how to please you"
+  about_title: "About us"
+  about_content_1: "Conveniently located just a 5-minute drive away from Hoi An Ancient Town as well as Cua Dai Beach,
+    LOTUS HOI AN BOUTIQUE HOTEL & SPA is an elegant resort-style hotel drawn
+    from a range of styles and influences resulting in a perfect blend of Eastern culture and French architecture."
+  about_content_2: "LOTUS HOI AN BOUTIQUE HOTEL & SPA comprises 58 rooms and 2 suites,
+    all rooms are fully contained and fitted with a combination of traditional Vietnamese and French-style furnishings.
+    They all have a private balcony offering beautiful views of the swimming pool or the garden to feel the finest touch of hospitality and comfort."
+  about_content_3: "With over 15 years of experience in the hospitality business,
+    we are proud to be one of the oldest businesses in Hoi An Ancient Town."
+  booking_section_content: "Choose the most suitable room"
+  booking_section_header: "Let's your vacation start"
+  booking_button: "Visit booking page"
+  contact_title: "Contact us"
+  email: "dinhsinh.le@outlook.com"
+  footer: "2018 Le Dinh Sinh"
