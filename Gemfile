@@ -21,6 +21,9 @@ gem "jquery-easing-rails"
 gem "jquery-rails"
 gem "rails-ujs"
 gem "sprockets", "3.6.3"
+gem "bcrypt"
+gem "bootstrap-sass", "3.3.7"
+gem "figaro"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
