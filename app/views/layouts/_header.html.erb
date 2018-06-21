@@ -4,27 +4,36 @@
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
         <i class="fa fa-bars"></i>
       </button>
-      <a class="navbar-brand page-scroll" href="#page-top">
+      <%= link_to root_path(anchor: "page-top"), :class => "navbar-brand page-scroll" do %>
         <span class="light"><%= t "nav_bar_name_first" %></span><%= t "nav_bar_name_second" %>
-      </a>
+      <% end %>
     </div>
     <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
       <ul class="nav navbar-nav">
         <li class="hidden">
-          <a href="#page-top"></a>
+          <%= link_to root_path(anchor: "page-top") %>
         </li>
         <li>
-          <a class="page-scroll" href="#about"><%= t "nav_bar_about" %></a>
+          <%= link_to t("nav_bar_about"), root_path(anchor: "about"), class: "page-scroll" %>
         </li>
         <li>
-          <a class="page-scroll" href="#booking"><%= t "nav_bar_bookin" %></a>
+          <%= link_to t("nav_bar_bookin"), root_path(anchor: "booking"), class: "page-scroll" %>
         </li>
         <li>
-          <a class="page-scroll" href="#contact"><%= t "nav_bar_contact" %></a>
+          <%= link_to t("nav_bar_contact"), root_path(anchor: "contact"), class: "page-scroll" %>
         </li>
-        <li>
-          <a class="page-scroll" href="#"><%= t "nav_bar_login" %></a>
-        </li>
+        <% if logged_in? %>
+          <li>
+            <%= link_to @current_customer.name, @current_customer, class: "page-scroll" %>
+          </li>
+          <li>
+            <%= link_to t("nav_bar_logout_link"), logout_path, method: :delete %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to t("nav_bar_login"), login_path(anchor: "sectionB"), class: "page-scroll" %>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>
@@ -36,9 +45,6 @@
         <div class="col-md-8 col-md-offset-2">
           <h1 class="brand-heading"><%= (t "nav_bar_name_first") + (t "nav_bar_name_second") %></h1>
           <p class="intro-text"><%= t "intro_text_header" %><br><%= t "intro_text_content" %></p>
-          <a href="#about" class="btn btn-circle page-scroll">
-            <i class="fa fa-angle-double-down animated"></i>
-          </a>
         </div>
       </div>
     </div>

@@ -1,0 +1,3 @@
+<%= t "email_greeting" %><%= @customer.name %>,
+<%= t "lable_to_active_email" %>
+<%= edit_account_activation_url(@customer.activation_token, email: @customer.email) %>

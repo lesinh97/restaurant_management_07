@@ -1,0 +1,5 @@
+max_lenght_email: 255
+max_lenght_name: 50
+min_lenght_pass: 6
+checkbox_true: 1
+time_mail_expire.hours: 2
