@@ -261,9 +261,9 @@ a:focus {
   height: auto;
   padding: 100px 0;
   text-align: center;
-  color: #000;
-  background: url(asset-path("booking-bg.jpg")) no-repeat center center scroll;
-  background-color: #fff;
+  color: #fff;
+  background: url(asset-path("booking-bg.jpg")) no-repeat top center scroll;
+  background-color: #000;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;

@@ -1,0 +1,16 @@
+<div class="services-one">
+  <div class="flexslider flexslider-padding">
+    <%= link_to room_path room do %>
+      <%= image_tag "room_0", class: "room-image" %>
+      <%= link_to t("delete_room_label"), room, method: :delete,
+        data: {confirm: t("confirm_room_delete")} %>
+    <% end %>
+    <%= link_to room_path room do %>
+      <%= image_tag "room_0_1", class: "room-image" %>
+    <% end %>
+    <%= link_to room_path room do %>
+      <%= image_tag "room_0_2", class: "room-image" %>
+    <% end %>
+    <div class="clearfix"></div>
+  </div>
+</div>
