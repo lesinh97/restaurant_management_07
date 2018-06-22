@@ -5,25 +5,27 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem "rails", "~> 5.1.6"
-gem "puma", "~> 3.7"
-gem "sass-rails", "~> 5.0", ">= 5.0.6"
-gem "uglifier", ">= 1.3.0"
-gem "coffee-rails", "~> 4.2"
-gem "turbolinks", "~> 5"
-gem "jbuilder", "~> 2.5"
-gem "rubocop", "~> 0.49.1", require: false
-gem "config"
-gem "therubyracer"
-gem "less-rails-bootstrap"
-gem "font-awesome-rails"
-gem "jquery-easing-rails"
-gem "jquery-rails"
-gem "rails-ujs"
-gem "sprockets", "3.6.3"
 gem "bcrypt"
 gem "bootstrap-sass", "3.3.7"
+gem "coffee-rails", "~> 4.2"
+gem "config"
+gem "faker", git: "https://github.com/stympy/faker.git", branch: "master"
 gem "figaro"
+gem "font-awesome-rails"
+gem "jbuilder", "~> 2.5"
+gem "jquery-easing-rails"
+gem "jquery-rails"
+gem "less-rails-bootstrap"
+gem "puma", "~> 3.7"
+gem "rails", "~> 5.1.6"
+gem "rails-ujs"
+gem "rubocop", "~> 0.49.1", require: false
+gem "sass-rails", "~> 5.0", ">= 5.0.6"
+gem "sprockets"
+gem "therubyracer"
+gem "turbolinks", "~> 5"
+gem "uglifier", ">= 1.3.0"
+gem "will_paginate"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

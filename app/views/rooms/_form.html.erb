@@ -1,0 +1,16 @@
+<%= form_for @room do |f| %>
+  <%= render "shared/error_messages", object: @room %>
+  <div class="field">
+    <%= f.label :room_numb, t("room_numb_label") %><br>
+    <%= f.text_field :room_numb %>
+  </div>
+  <div class="field">
+    <%= f.label :description, t("room_descript_label") %><br>
+    <%= f.text_field :description %>
+  </div>
+  <%= f.label t("room_type_label") %>
+  <%= f.select :room_type_id, options_for_select(load_room_type)%>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

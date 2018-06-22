@@ -34,20 +34,21 @@ $gray-medium-light: #eaeaea;
 }
 
 /* form */
-.error_explanation {
-  color: red;
-  ul {
-    color: red;
-    margin: 0 0 30px 0;
-  }
+.field_with_errors {
+  padding: 1px;
+  background-color: red;
+  display: table;
 }
 
-.field_with_errors {
-  @extend .has-error;
-  .form-control {
-    color: #a94442;
-  }
+.error_explanation {
+  width: 450px;
+  border: 1px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
 }
+
 .form-body{
   background:#fff;
   padding:20px;
@@ -161,3 +162,8 @@ $gray-medium-light: #eaeaea;
   padding-top:10px;
 }
 
+/* image size */
+.room-image {
+  width: 300px;
+  height: 300px;
+}
