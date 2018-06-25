@@ -17,12 +17,12 @@
           <%= link_to t("nav_bar_about"), root_path(anchor: "about"), class: "page-scroll" %>
         </li>
         <li>
-          <%= link_to t("nav_bar_bookin"), root_path(anchor: "booking"), class: "page-scroll" %>
-        </li>
-        <li>
           <%= link_to t("nav_bar_contact"), root_path(anchor: "contact"), class: "page-scroll" %>
         </li>
         <% if logged_in? %>
+          <li>
+            <%= link_to t("nav_bar_bookin"), booking_tickets_path, class: "page-scroll" %>
+          </li>
           <li>
             <%= link_to @current_customer.name, @current_customer, class: "page-scroll" %>
           </li>
@@ -30,6 +30,9 @@
             <%= link_to t("nav_bar_logout_link"), logout_path, method: :delete %>
           </li>
         <% else %>
+          <li>
+            <%= link_to t("nav_bar_bookin"), root_path(anchor: "booking"), class: "page-scroll" %>
+          </li>
           <li>
             <%= link_to t("nav_bar_login"), login_path(anchor: "sectionB"), class: "page-scroll" %>
           </li>

@@ -1,10 +1,17 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require "database_cleaner"
+
+DatabaseCleaner.clean_with :truncation
+
+10.times do |a|
+  cus_name = Faker::DrWho.character
+  phone_num = Faker::PhoneNumber.phone_number
+  add = Faker::Address.street_name
+  country = Faker::Address.country
+  email = "mail-#{a+1}@mail.com"
+  Customer.create!(name: cus_name, phone: phone_num, address: add, country: country,
+    email: email, password: "hihihi", password_confirmation: "hihihi",
+    activated: true)
+end
 10.times do |n|
   room_type  = Faker::DragonBall.unique.character
   bed_num = n+1
@@ -27,3 +34,15 @@ end
     available: true,
     room_type_id: room_type_id)
 end
+10.times do |z|
+  start_date = DateTime.now
+  end_date =  Faker::Date.forward(z)
+  numb_of_date = (end_date-start_date).to_i
+  BookingTicket.create!(customer_id: z+1,
+    success: true, start_day: start_date,
+    end_day: end_date)
+  BookedRoom.create!(room_id: z+1, booking_ticket_id: z+1,
+    day_stay: numb_of_date)
+end
+
+

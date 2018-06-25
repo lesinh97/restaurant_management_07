@@ -1,4 +1,4 @@
 class BookedRoom < ApplicationRecord
-  belong_to :room
-  belong_to :booking_ticket
+  belongs_to :room
+  belongs_to :booking_ticket
 end

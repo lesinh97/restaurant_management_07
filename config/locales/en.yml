@@ -61,6 +61,13 @@ en:
   room_descript_label: "Description"
   room_type_label: "Room type"
   back_link: "Back"
+  booking_detail_header: "Booking Detail"
+  start_date_table: "Start Date"
+  end_date_table: "End date"
+  show_booking_table: "Show"
+  check_in_lable: "Check in"
+  check_out_lable: "Check out"
+  adult: "Adult"
   customers:
     nil_customer: "Can not found customers"
   footer: "2018 Le Dinh Sinh"
