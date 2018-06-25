@@ -1,4 +1,5 @@
 class BookingTicketsController < ApplicationController
+  before_action :logged_in_user
   before_action :load_booking_ticket, except: %i(new create index)
 
   def index

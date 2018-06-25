@@ -7,6 +7,7 @@ class CreateCustomers < ActiveRecord::Migration[5.1]
       t.string :address
       t.string :country
       t.boolean :activated, default: false
+      t.integer :role
       t.index  :email, unique: true
       t.timestamps
     end

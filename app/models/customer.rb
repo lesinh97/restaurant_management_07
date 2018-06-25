@@ -1,8 +1,10 @@
 class Customer < ApplicationRecord
   VALID_PHONE = /\A[0]{1}[19]{1}[0-9]{8,9}\z/
   VALID_EMAIL = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/is
+  enum role: {customer: 0, admin: 1}
   attr_accessor :remember_token, :activation_token, :reset_token
   has_many :booking_tickets
+  has_many :invoices
   validates :email, format: {with: VALID_EMAIL}
   validates :email, presence: true, uniqueness: {case_sensitive: false},
     length: {maximum: Settings.max_lenght_email}
