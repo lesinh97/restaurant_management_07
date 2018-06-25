@@ -4,13 +4,8 @@
       <h3><%= t "room_types" %></h3>
     </div>
     <div class="services-bottom">
-      <div class="col-md-6 services-left">
-        <%= will_paginate %>
-        <%= render @rooms %>
-        <%= will_paginate %>
-      </div>
-      <div class="col-md-6 services-right">
-      </div>
+      <%= render @rooms %>
+      <%= will_paginate @rooms, renderer: BootstrapPagination::Rails %>
     </div>
   </div>
 </div>

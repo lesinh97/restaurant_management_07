@@ -51,6 +51,6 @@ module SessionsHelper
   end
 
   def author_admin? user
-    current_user.admin? && !current_user?(user)
+    current_customer.admin? && !current_customer?(user)
   end
 end

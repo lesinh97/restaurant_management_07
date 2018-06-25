@@ -10,26 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180622072616) do
-
-  create_table "booked_rooms", force: :cascade do |t|
-    t.integer "room_id"
-    t.integer "booking_ticket_id"
-    t.integer "day_stay"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["booking_ticket_id"], name: "index_booked_rooms_on_booking_ticket_id"
-    t.index ["room_id"], name: "index_booked_rooms_on_room_id"
-  end
+ActiveRecord::Schema.define(version: 20180620060713) do
 
   create_table "booking_tickets", force: :cascade do |t|
     t.integer "customer_id"
-    t.boolean "success"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer "room_id"
     t.datetime "start_day"
     t.datetime "end_day"
+    t.integer "stay_day_number"
+    t.integer "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["customer_id"], name: "index_booking_tickets_on_customer_id"
+    t.index ["room_id"], name: "index_booking_tickets_on_room_id"
   end
 
   create_table "customers", force: :cascade do |t|
@@ -39,6 +32,7 @@ ActiveRecord::Schema.define(version: 20180622072616) do
     t.string "address"
     t.string "country"
     t.boolean "activated", default: false
+    t.integer "role"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
@@ -51,13 +45,13 @@ ActiveRecord::Schema.define(version: 20180622072616) do
   end
 
   create_table "invoices", force: :cascade do |t|
-    t.integer "staff_id"
+    t.integer "customer_id"
     t.integer "booking_ticket_id"
     t.float "total"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["booking_ticket_id"], name: "index_invoices_on_booking_ticket_id"
-    t.index ["staff_id"], name: "index_invoices_on_staff_id"
+    t.index ["customer_id"], name: "index_invoices_on_customer_id"
   end
 
   create_table "room_types", force: :cascade do |t|
@@ -79,16 +73,6 @@ ActiveRecord::Schema.define(version: 20180622072616) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["room_type_id"], name: "index_rooms_on_room_type_id"
-  end
-
-  create_table "staffs", force: :cascade do |t|
-    t.string "name"
-    t.string "account"
-    t.datetime "join_at"
-    t.boolean "admin", default: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["account"], name: "index_staffs_on_account", unique: true
   end
 
 end
