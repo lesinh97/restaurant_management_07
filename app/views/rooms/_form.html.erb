@@ -2,14 +2,14 @@
   <%= render "shared/error_messages", object: @room %>
   <div class="field">
     <%= f.label :room_numb, t("room_numb_label") %><br>
-    <%= f.text_field :room_numb %>
+    <%= f.text_field :room_numb, class: "form-control" %>
   </div>
   <div class="field">
     <%= f.label :description, t("room_descript_label") %><br>
-    <%= f.text_field :description %>
+    <%= f.text_field :description, class: "form-control" %>
   </div>
   <%= f.label t("room_type_label") %>
-  <%= f.select :room_type_id, options_for_select(load_room_type)%>
+  <%= f.select :room_type_id, options_for_select(load_room_type), class: "form-control" %>
   <div class="actions">
     <%= f.submit %>
   </div>

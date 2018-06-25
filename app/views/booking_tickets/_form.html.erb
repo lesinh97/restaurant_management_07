@@ -1,0 +1,32 @@
+<%= form_for @booking_ticket do |f| %>
+  <div class="bnr-one">
+    <div class="bnr-left">
+      <%= f.label :room_type %><br>
+    </div>
+    <div class="bnr-right">
+      <%= f.select :room_type_id, options_for_select(load_room_type) %>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+  <div class="bnr-one">
+    <div class="bnr-left">
+      <p><%= t "check_in_label" %></p>
+    </div>
+    <div class="bnr-right">
+      <%= f.date_field :start_date, id: "start_datepicker", type: "text" %>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+  <div class="bnr-one">
+    <div class="bnr-left">
+      <p><%= t "check_out_lable" %></p>
+    </div>
+    <div class="bnr-right">
+      <%= f.date_field :last_date, id: "end_datepicker", type: "text" %>
+    </div>
+    <div class="clearfix"></div>
+    <div class="bnr-btn">
+      <%= f.submit %>
+    </div>
+  </div>
+<% end %>

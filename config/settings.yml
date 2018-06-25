@@ -4,3 +4,5 @@ min_lenght_pass: 6
 checkbox_true: 1
 time_mail_expire.hours: 2
 room_per_page: 5
+booking_per_page: 10
+date_time_format: "%d-%m-%Y"

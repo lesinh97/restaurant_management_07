@@ -1,5 +1,5 @@
 class Customer < ApplicationRecord
-  VALID_PHONE = /\A(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}\z/
+  VALID_PHONE = /\A[0]{1}[19]{1}[0-9]{8,9}\z/
   VALID_EMAIL = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/is
   attr_accessor :remember_token, :activation_token, :reset_token
   has_many :booking_tickets
@@ -7,7 +7,6 @@ class Customer < ApplicationRecord
   validates :email, presence: true, uniqueness: {case_sensitive: false},
     length: {maximum: Settings.max_lenght_email}
   validates :name, presence: true, length: {maximum: Settings.max_lenght_name}
-  validates :phone, format: {with: VALID_PHONE}, allow_nil: true
   validates :password, presence: true, length: {minimum: Settings.min_lenght_pass}, allow_nil: true
   has_secure_password
   before_save :downcase_email

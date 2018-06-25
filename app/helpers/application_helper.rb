@@ -7,4 +7,8 @@ module ApplicationHelper
   def load_room_type
     RoomType.all.map{|room| [room.name, room.id]}
   end
+
+  def display_time_in_booking time
+    time.strftime(Settings.date_time_format)
+  end
 end
