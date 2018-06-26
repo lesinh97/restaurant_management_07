@@ -1,27 +1,19 @@
-<div class = "booking">
-  <div class="panel panel-info">
-    <div class="panel-heading">
-      <h3 class="panel-title"><%= t "booking_detail_header" %></h3>
-    </div>
-    <div class="panel-body">
-      <div class="row">
-        <div class=" col-md-12 col-lg-12 ">
-          <table class="table table-user-information">
-            <thead>
-              <tr>
-                <th><%= t "start_date_table" %></th>
-                <th><%= t "end_date_table" %></th>
-                <th><%= t "show_booking_table" %><th>
-              </tr>
-              <tr>
-                <td><%= display_time_in_booking booking_ticket.start_day %></td>
-                <td><%= display_time_in_booking booking_ticket.end_day %></td>
-                <td><%= link_to t("show_booking_table"), @booking_ticket %></td>
-              </tr>
-            </thead>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<% if current_customer.admin? %>
+  <tr>
+    <td><%= booking_ticket.customer.name %></td>
+    <td><%= booking_ticket.room.room_numb %></td>
+    <td><%= display_time_in_booking booking_ticket.start_day %></td>
+    <td><%= display_time_in_booking booking_ticket.end_day %></td>
+    <td><%= caculate_price booking_ticket.room.room_type.price, booking_ticket.stay_day_number.to_f %></td>
+    <td><%= link_to t("show_booking_table"), @booking_ticket %></td>
+  </tr>
+  <% else %>
+  <tr>
+    <td><%= current_customer.name %></td>
+    <td><%= booking_ticket.room.room_numb %></td>
+    <td><%= display_time_in_booking booking_ticket.start_day %></td>
+    <td><%= display_time_in_booking booking_ticket.end_day %></td>
+    <td><%= caculate_price booking_ticket.room.room_type.price, booking_ticket.stay_day_number.to_f %></td>
+    <td><%= link_to t("show_booking_table"), @booking_ticket %></td>
+  </tr>
+<% end %>

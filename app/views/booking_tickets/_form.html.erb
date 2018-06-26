@@ -1,32 +1,42 @@
-<%= form_for @booking_ticket do |f| %>
-  <div class="bnr-one">
-    <div class="bnr-left">
-      <%= f.label :room_type %><br>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <div class="form-body">
+        <div class= "innter-form">
+          <%= form_for @booking_ticket, html: {class: "sa-innate-form"} do |f| %>
+            <div class="bnr-one">
+              <div class="bnr-left">
+                <%= f.label :room_numb %><br>
+              </div>
+              <div class="bnr-right">
+                <%= f.select :room_id, options_for_select(load_room_number @rooms), class: "form-control" %>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+            <div class="bnr-one">
+              <div class="bnr-left">
+                <p><%= t "check_in_lable" %></p>
+              </div>
+              <div class="bnr-right">
+                <%= f.date_field :start_day, id: "start_datepicker", data:{provide:"datepicker"}, class: "form-control" %>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+            <div class="bnr-one">
+              <div class="bnr-left">
+                <p><%= t "check_out_lable" %></p>
+              </div>
+              <div class="bnr-right">
+                <%= f.date_field :end_day, id: "end_datepicker", data:{provide:"datepicker"}, class: "form-control" %>
+              </div>
+              <div class="clearfix"></div>
+              <div class="bnr-btn">
+                <%= f.submit t("create_booking_butt"), class: "btn btn-default btn-lg" %>
+                <%= link_to t("cancel_booking_butt"), root_path, class: "btn btn-default btn-lg" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
-    <div class="bnr-right">
-      <%= f.select :customer_id, options_for_select(load_room_type) %>
-    </div>
-    <div class="clearfix"></div>
   </div>
-  <div class="bnr-one">
-    <div class="bnr-left">
-      <p><%= t "check_in_lable" %></p>
-    </div>
-    <div class="bnr-right">
-      <%= f.date_field :start_day, id: "start_datepicker", type: "text" %>
-    </div>
-    <div class="clearfix"></div>
-  </div>
-  <div class="bnr-one">
-    <div class="bnr-left">
-      <p><%= t "check_out_lable" %></p>
-    </div>
-    <div class="bnr-right">
-      <%= f.date_field :end_day, id: "end_datepicker", type: "text" %>
-    </div>
-    <div class="clearfix"></div>
-    <div class="bnr-btn">
-      <%= f.submit %>
-    </div>
-  </div>
-<% end %>
