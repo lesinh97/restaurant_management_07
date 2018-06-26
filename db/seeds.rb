@@ -24,7 +24,7 @@ end
     air_condition: true,
     price: price)
 end
-10.times do |m|
+20.times do |m|
   room_numb = Faker::Military.dod_paygrade
   position = Faker::NewGirl.quote
   description = Faker::StrangerThings.quote
@@ -32,14 +32,17 @@ end
     position: position,
     description: description,
     available: true,
-    room_type_id: m+1)
+    room_type_id: rand(9)+1)
 end
-10.times do |z|
+9.times do |z|
   start_date = DateTime.now
   end_date =  Faker::Date.forward(z)
   numb_of_date = (end_date-start_date).to_i
   status = rand(4)
-  BookingTicket.create!(customer_id: z+1, room_id: 10-z,
+  room_id = 9-z
+  room = Room.find(room_id)
+  BookingTicket.create!(customer_id: z+1, room_id: room_id,
     start_day: start_date,
     end_day: end_date, status: status, stay_day_number: numb_of_date)
+  room.update_attributes(available: false)
 end

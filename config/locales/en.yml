@@ -68,6 +68,13 @@ en:
   check_in_lable: "Check in"
   check_out_lable: "Check out"
   adult: "Adult"
+  new_booking_button: "New booking"
+  view_rooms_button: "See more room"
+  owner_name_label: "Booked by"
+  room_no: "Room number"
+  ticket_price: "Total price"
+  create_booking_butt: "Book me please"
+  cancel_booking_butt: "Cancle"
   customers:
     nil_customer: "Can not found customers"
   footer: "2018 Le Dinh Sinh"

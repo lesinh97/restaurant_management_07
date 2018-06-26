@@ -1,5 +1,33 @@
 <div id="wrap">
   <div id="main" class="container clear-top">
-    <%= render @booking_tickets %>
+    <div class = "booking">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t "booking_detail_header" %></h3>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class=" col-md-12 col-lg-12 ">
+              <table class="table table-user-information">
+                <thead>
+                  <tr>
+                    <th><%= t "owner_name_label" %></th>
+                    <th><%= t "room_no" %></th>
+                    <th><%= t "start_date_table" %></th>
+                    <th><%= t "end_date_table" %></th>
+                    <th><%= t "ticket_price" %></th>
+                    <th><%= t "show_booking_table" %><th>
+                    </tr>
+                    <%= render @booking_tickets %>
+                  </thead>
+                </table>
+                <%= will_paginate @booking_tickets, renderer: BootstrapPagination::Rails %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <%= link_to t("new_booking_button"), new_booking_ticket_path, class: "btn btn-default btn-lg" %>
+        <%= link_to t("view_rooms_button"), rooms_path, class: "btn btn-default btn-lg" %>
+      </div>
+    </div>
   </div>
-</div>
