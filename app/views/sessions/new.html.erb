@@ -28,8 +28,16 @@
             </div>
             <div class="social-login">
               <ul>
-                <li><a href=""><i class="fa fa-facebook"></i> Facebook</a></li>
-                <li><a href=""><i class="fa fa-google-plus"></i> Google+</a></li>
+                <li>
+                  <%= link_to login_facebook_path do %>
+                    <i class="fa fa-facebook"></i><%= t "facebook_label" %>
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to login_google_path do %>
+                    <i class="fa fa-google-plus"></i><%= t "google_label" %>
+                  <% end %>
+                </li>
                 <li><a href=""><i class="fa fa-twitter"></i> Twitter</a></li>
               </ul>
               <div class="clearfix"></div>

@@ -4,8 +4,8 @@
      <div class="thumbnail img-thumb-bg">
        <div class="overlay"></div>
        <div class="caption">
-         <div class="tag"><%= link_to room.room_type.name %></div>
-         <div class="title"><a><%= room.position %></a></div>
+         <div class="tag"><a><%= room.room_type.name %></a></div>
+         <div class="title"><a><%= link_to room.position, room %></a></div>
          <div class="clearfix">
            <span class="meta-data pull-right"><a href=""><i class="fa fa-heart-o"></i><%= Settings.love_vote %></a></span>
          </div>
@@ -17,6 +17,12 @@
    </div>
    <div class="col-lg-6 col-md-4 col-sm-6">
     <p><%= room.description %></p>
+    <% if current_customer.admin? %>
+      <button type="button" class="btn btn-danger">
+        <%= link_to t("delete_room_label"), room, method: :delete,
+          data: {confirm: t("confirm_room_delete")} %>
+      </button>
+    <% end %>
   </div>
 </div>
 </div>

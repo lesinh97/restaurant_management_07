@@ -50,5 +50,6 @@ class BookingTicketsController < ApplicationController
     @booking_ticket.room.update_attributes available: false
     @booking_ticket.update_attributes stay_day_number: stay_day_number
     redirect_to booking_tickets_path
+    flash.now[:success] = t "book_successful"
   end
 end

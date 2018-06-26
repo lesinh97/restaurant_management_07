@@ -1,6 +1,6 @@
 class RoomsController < ApplicationController
   before_action :load_room, except: %i(new index create)
-  before_action :admin_user, except: %i(show index)
+  before_action :admin_customer, except: %i(show index)
 
   def index
     @rooms = Room.odering.includes(:room_type).paginate page: params[:page], per_page: Settings.room_per_page
@@ -9,6 +9,8 @@ class RoomsController < ApplicationController
   def new
     @room = Room.new
   end
+
+  def show; end
 
   def create
     @room = Room.new room_params
