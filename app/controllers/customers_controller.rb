@@ -1,6 +1,7 @@
 class CustomersController < ApplicationController
   def new
     @customer = Customer.new
+    @customer.assign_attributes name: params[:name], email: params[:email]
   end
 
   def show
