@@ -1,26 +1,12 @@
 class RoomsController < ApplicationController
-  before_action :load_room, except: %i(new index create)
+  before_action :logged_in_customer, except: %i(new create update)
   before_action :admin_customer, except: %i(show index)
 
   def index
     @rooms = Room.odering.includes(:room_type).paginate page: params[:page], per_page: Settings.room_per_page
   end
 
-  def new
-    @room = Room.new
-  end
-
   def show; end
-
-  def create
-    @room = Room.new room_params
-    if @room.save
-      redirect_to @room
-      flash.now[:success] = t "room_create"
-    else
-      render :new
-    end
-  end
 
   def update
     if @room.update room_params

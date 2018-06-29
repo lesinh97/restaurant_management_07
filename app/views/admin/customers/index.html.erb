@@ -13,12 +13,9 @@
               <%= will_paginate @customers, renderer: BootstrapPagination::Rails %>
             </tbody>
           </table>
-          <button class="btn btn-flat ripple-effect btn-default">
-            <%= link_to t("back_button"), statistics_path %>
-          </button>
+          <%= link_to t("back_button"), statistics_path(anchor: "main"), class: "btn btn-flat ripple-effect btn-default" %>
         </div>
       </div>
     </div>
-
   </div>
 </div>

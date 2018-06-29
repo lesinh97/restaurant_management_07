@@ -6,7 +6,7 @@
     <td><%= display_time_in_booking booking_ticket.start_day %></td>
     <td><%= display_time_in_booking booking_ticket.end_day %></td>
     <td><%= calculate_total_price booking_ticket %></td>
-    <td><%= link_to t("show_booking_table"), @booking_ticket %></td>
+    <td><%= link_to t("cancel_booking_table"), @booking_ticket, class: "btn btn-danger btn-xs" %></td>
   </tr>
   <% else %>
   <tr>
@@ -16,6 +16,6 @@
     <td><%= display_time_in_booking booking_ticket.start_day %></td>
     <td><%= display_time_in_booking booking_ticket.end_day %></td>
     <td><%= calculate_total_price booking_ticket %></td>
-    <td><%= link_to t("show_booking_table"), @booking_ticket %></td>
+    <td><%= link_to t("cancel_booking_table"), @booking_ticket, class: "btn btn-danger btn-xs" %></td>
   </tr>
 <% end %>

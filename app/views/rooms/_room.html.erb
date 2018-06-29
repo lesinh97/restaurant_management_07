@@ -18,10 +18,8 @@
    <div class="col-lg-6 col-md-4 col-sm-6">
     <p><%= room.description %></p>
     <% if current_customer.admin? %>
-      <button type="button" class="btn btn-danger">
         <%= link_to t("delete_room_label"), room, method: :delete,
-          data: {confirm: t("confirm_room_delete")} %>
-      </button>
+          data: {confirm: t("confirm_room_delete")}, class: "btn btn-danger" %>
     <% end %>
   </div>
 </div>
