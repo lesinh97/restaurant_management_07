@@ -2,18 +2,20 @@
   <tr>
     <td><%= booking_ticket.customer.name %></td>
     <td><%= booking_ticket.room.room_numb %></td>
+    <td><%= booking_ticket.room.room_type.name %></td>
     <td><%= display_time_in_booking booking_ticket.start_day %></td>
     <td><%= display_time_in_booking booking_ticket.end_day %></td>
-    <td><%= caculate_price booking_ticket.room.room_type.price, booking_ticket.stay_day_number.to_f %></td>
+    <td><%= calculate_total_price booking_ticket %></td>
     <td><%= link_to t("show_booking_table"), @booking_ticket %></td>
   </tr>
   <% else %>
   <tr>
     <td><%= current_customer.name %></td>
     <td><%= booking_ticket.room.room_numb %></td>
+    <td><%= booking_ticket.room.room_type.name %></td>
     <td><%= display_time_in_booking booking_ticket.start_day %></td>
     <td><%= display_time_in_booking booking_ticket.end_day %></td>
-    <td><%= caculate_price booking_ticket.room.room_type.price, booking_ticket.stay_day_number.to_f %></td>
+    <td><%= calculate_total_price booking_ticket %></td>
     <td><%= link_to t("show_booking_table"), @booking_ticket %></td>
   </tr>
 <% end %>

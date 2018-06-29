@@ -4,8 +4,8 @@ module ApplicationHelper
     page_title.empty? ? base_title : "#{page_title} #{base_title}"
   end
 
-  def load_room_type
-    RoomType.all.map{|room| [room.name, room.id]}
+  def load_room_type room_type
+    room_type.map{|room| [room.name, room.id. room.room_id]}
   end
 
   def load_room_number doom
@@ -14,9 +14,5 @@ module ApplicationHelper
 
   def display_time_in_booking time
     time.strftime(Settings.date_time_format)
-  end
-
-  def caculate_price a, b
-    a * b
   end
 end

@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  helper_method :caculate_price, :calculate_total_price
   include SessionsHelper
+  include ActionView::Helpers::NumberHelper
 
   def logged_in_customer
     return if logged_in?
@@ -11,5 +13,13 @@ class ApplicationController < ActionController::Base
 
   def admin_customer
     redirect_to root_path unless current_customer.admin?
+  end
+
+  def caculate_price a, b
+    a * b
+  end
+
+  def calculate_total_price booking_ticket
+    number_to_currency caculate_price booking_ticket.room.room_type.price, booking_ticket.stay_day_number.to_f
   end
 end

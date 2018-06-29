@@ -1,0 +1,23 @@
+<tr>
+  <td class="td-custom">
+    <img class="pull-left img-circle nav-user-photo img-custom"
+    src="https://instagram.fdad1-1.fna.fbcdn.net/vp/0f7b8b4d888cec82370c658f091f5301/5BCC785C/t51.2885-15/sh0.08/e35/p640x640/33878297_182683552432151_5830953965914685440_n.jpg"/>  
+  </td>
+  <td>
+    <%= link_to customer.name, customer %>
+    <br><i class="fa fa-envelope"></i> <small class="text-muted"><%= customer.email %></small>
+  </td>
+  <td align="center">
+    <%= customer.role.upcase %>
+  </td>
+  <td align="center">
+    <%= t "join_at_label" %><%= display_time_in_booking customer.created_at %>
+    <br><small class="text-muted"><%= time_ago_in_words customer.created_at %></small>
+  </td>
+  <td align="center">
+    <button type="button" class="btn btn-danger">
+      <%= link_to t("delete_customer_label"), customer, method: :delete,
+      data: {confirm: t("confirm_customer_delete")} %>
+    </button>
+  </td>
+</tr>

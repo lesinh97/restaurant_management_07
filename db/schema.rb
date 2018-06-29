@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180620060713) do
+ActiveRecord::Schema.define(version: 20180629012720) do
 
   create_table "booking_tickets", force: :cascade do |t|
     t.integer "customer_id"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20180620060713) do
     t.integer "status", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "total_price"
     t.index ["customer_id"], name: "index_booking_tickets_on_customer_id"
     t.index ["room_id"], name: "index_booking_tickets_on_room_id"
   end
@@ -41,6 +42,7 @@ ActiveRecord::Schema.define(version: 20180620060713) do
     t.datetime "activated_at"
     t.string "reset_digest"
     t.datetime "reset_sent_at"
+    t.integer "total_booking"
     t.index ["email"], name: "index_customers_on_email", unique: true
   end
 

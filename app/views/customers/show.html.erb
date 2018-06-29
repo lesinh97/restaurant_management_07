@@ -1,1 +1,16 @@
-<%= @customer.name %>, <%= @customer.email %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2 col-md-4">
+      <img src="https://instagram.fdad1-1.fna.fbcdn.net/vp/0f7b8b4d888cec82370c658f091f5301/5BCC785C/t51.2885-15/sh0.08/e35/p640x640/33878297_182683552432151_5830953965914685440_n.jpg"
+      alt="" class="img-rounded img-responsive" />
+    </div>
+    <div class="col-sm-6 col-md-8">
+      <blockquote>
+        <p><%= @customer.name %></p> <small><cite title="Source Title"><%= @customer.country%>  <i class="glyphicon glyphicon-map-marker"></i></cite></small>
+      </blockquote>
+      <p> <i class="glyphicon glyphicon-envelope"></i> <%= @customer.email %>
+        <br/><i class="glyphicon glyphicon-globe"></i> <%= @customer.booking_tickets.size %> total booking
+        <br/><i class="glyphicon glyphicon-gift"></i> <%= display_time_in_booking @customer.created_at %></p>
+      </div>
+    </div>
+  </div>

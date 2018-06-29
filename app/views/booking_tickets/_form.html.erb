@@ -6,10 +6,10 @@
           <%= form_for @booking_ticket, html: {class: "sa-innate-form"} do |f| %>
             <div class="bnr-one">
               <div class="bnr-left">
-                <%= f.label :room_numb %><br>
+                <%= f.label :room_type_id %><br>
               </div>
               <div class="bnr-right">
-                <%= f.select :room_id, options_for_select(load_room_number @rooms), class: "form-control" %>
+                <%= collection_select(:booking_ticket, :room_id, RoomType.all, :id, :name) %>
               </div>
               <div class="clearfix"></div>
             </div>

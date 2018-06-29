@@ -28,6 +28,10 @@ class CustomersController < ApplicationController
     redirect_to root_path
   end
 
+  def correct_customer
+    redirect_to root_path unless current_customer? @customer
+  end
+
   def customer_params
     params.require(:customer).permit :name, :email, :phone, :password,
       :password_confirmation
