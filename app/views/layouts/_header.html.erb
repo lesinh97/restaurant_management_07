@@ -26,6 +26,11 @@
           <li>
             <%= link_to @current_customer.name, @current_customer, class: "page-scroll" %>
           </li>
+          <% if current_customer.admin? %>
+            <li>
+              <%= link_to t("admin_panel_navbar"), statistics_path, class: "page-scroll" %>
+            </li>
+          <% end %>
           <li>
             <%= link_to t("nav_bar_logout_link"), logout_path, method: :delete %>
           </li>

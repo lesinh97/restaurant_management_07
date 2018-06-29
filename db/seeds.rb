@@ -40,9 +40,19 @@ end
   numb_of_date = (end_date-start_date).to_i
   status = rand(4)
   room_id = 9-z
+  booking_ticket_id = z+1
   room = Room.find(room_id)
   BookingTicket.create!(customer_id: z+1, room_id: room_id,
     start_day: start_date,
     end_day: end_date, status: status, stay_day_number: numb_of_date)
   room.update_attributes(available: false)
+  booking_ticket = BookingTicket.find(booking_ticket_id)
+  booking_ticket.update_attributes(total_price: booking_ticket.room.room_type.price * numb_of_date)
 end
+10.times do |j|
+  customer_id = j+1
+  cus = Customer.find(customer_id)
+  total_booking = cus.booking_tickets.size
+  cus.update_attributes(total_booking: total_booking)
+end
+

@@ -83,6 +83,34 @@ en:
   google_label: " google_label"
   room_info: "See more about this room"
   room_position_label: "Position"
+  room_type: "Room type"
+  customer_delete: "Customer delete"
+  create_room_success: "Successfully create this room"
+  update_room_success: "Successfully updated this room"
+  admin_panel_navbar: "Admin CP"
+  dashboard_link: "Dashboard"
+  dashboard_link_header: " Dashboard "
+  delete_customer_label: "Delete this customer"
+  confirm_customer_delete: "Are you sure to remove this customer?"
+  join_at_label: "Join at: "
+  customer_list: "Customer list"
+  back_button: "Back"
+  dashboard_content: "See the hotel statistics"
+  booking_dashboard: " Bookings "
+  hotel_overview: "Hotel Overview"
+  room_dashboard: " Rooms "
+  customer_dashboard: " Customers "
+  income_dashboard: "Income"
+  lastest_booking_dashboard: "Latest Booking"
+  admin:
+    rooms:
+      destroy:
+        success: "Room has been destroyed successfully"
+        warning: "Failed to destroy this room"
+    customers:
+      destroy:
+        success: "This customer has been destroyed successfully"
+        warning: "Failed to destroy this customer"
   customers:
     nil_customer: "Can not found customers"
   footer: "2018 Le Dinh Sinh"

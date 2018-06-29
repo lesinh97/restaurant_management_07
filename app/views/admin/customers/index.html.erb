@@ -1,0 +1,24 @@
+<script src="https://use.fontawesome.com/1e803d693b.js"></script>
+<div class="container">
+  <div class="row">
+    <div class="panel panel-default user_panel">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= t "customer_list" %></h3>
+      </div>
+      <div class="panel-body">
+        <div class="table-container">
+          <table class="table-users table" border="0">
+            <tbody>
+              <%= render @customers %>
+              <%= will_paginate @customers, renderer: BootstrapPagination::Rails %>
+            </tbody>
+          </table>
+          <button class="btn btn-flat ripple-effect btn-default">
+            <%= link_to t("back_button"), statistics_path %>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

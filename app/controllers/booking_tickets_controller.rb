@@ -9,7 +9,7 @@ class BookingTicketsController < ApplicationController
 
   def new
     @booking_ticket = current_customer.booking_tickets.new customer_id: params[:customer_id].to_i
-    @rooms = Room.all.is_available
+    @room_types = RoomType.all
   end
 
   def create
@@ -17,6 +17,8 @@ class BookingTicketsController < ApplicationController
       @booking_ticket = current_customer.booking_tickets.build booking_ticket_params
       if @booking_ticket.save
         handle_booking_successful
+        @booking_ticket.update_attributes(total_price: calculate_total_price(@booking_ticket))
+        current_customer.update_attributes(total_booking: caculate_total_booking(current_customer))
       else
         render :new
       end
@@ -42,7 +44,11 @@ class BookingTicketsController < ApplicationController
   end
 
   def caculate_stay_day booking_ticket
-    (booking_ticket.end_day - booking_ticket.start_day).to_i
+    (booking_ticket.end_day.to_date - booking_ticket.start_day.to_date).to_i
+  end
+
+  def caculate_total_booking customer
+    customer.booking_tickets.size
   end
 
   def handle_booking_successful
