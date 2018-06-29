@@ -3,7 +3,7 @@ class RoomsController < ApplicationController
   before_action :admin_customer, except: %i(show index)
 
   def index
-    @rooms = Room.odering.includes(:room_type).paginate page: params[:page], per_page: Settings.room_per_page
+    @rooms = Room.newest.includes(:room_type).paginate page: params[:page], per_page: Settings.room_per_page
   end
 
   def show; end

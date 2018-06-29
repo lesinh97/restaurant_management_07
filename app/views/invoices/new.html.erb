@@ -1,0 +1,15 @@
+<body>
+  <div class="container">
+    <%= render "invoice_header" %>
+    <%= render "customer_details" %>
+    <%= render "services_details" %>
+    <%= render "payment_details" %>
+    <%= render "contact_details" %>
+    <%= form_for @invoice do |f|%>
+      <%= f.hidden_field(:customer_id, value: params[:customer_id]) %>
+      <%= f.hidden_field(:booking_ticket_id, value: params[:booking_ticket_id]) %>
+      <%= f.hidden_field(:total, value: params[:total]) %>
+      <%= f.submit t("create_invoice_butt"), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</body>

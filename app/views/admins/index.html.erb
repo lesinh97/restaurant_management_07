@@ -42,6 +42,11 @@
               <%= t "customer_dashboard" %>
               <span class="badge"><%= @supports.load_customers.size %></span>
             </a>
+            <a href="/invoices" class="list-group-item">
+              <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+              <%= t "invoice_list" %>
+              <span class="badge"><%= @supports.load_invoices.size %></span>
+            </a>
           </div>
         </div>
         <div class="col-md-9">
@@ -96,7 +101,7 @@
                   <th><%= t "start_date_table" %></th>
                   <th><%= t "end_date_table" %></th>
                   <th><%= t "ticket_price" %></th>
-                  <th><%= t "cancel_booking_table" %><th>
+                  <th><%= t "make_invocie_table" %><th>
                 </tr>
                   <%= render @supports.load_booking_tickets %>
                 </thead>

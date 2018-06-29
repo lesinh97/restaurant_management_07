@@ -3,8 +3,8 @@ class Customer < ApplicationRecord
   VALID_EMAIL = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/is
   enum role: {customer: 0, admin: 1}
   attr_accessor :remember_token, :activation_token, :reset_token
-  has_many :booking_tickets
-  has_many :invoices
+  has_many :booking_tickets, dependent: :delete_all
+  has_many :invoices, dependent: :delete_all
   validates :email, format: {with: VALID_EMAIL}
   validates :email, presence: true, uniqueness: {case_sensitive: false},
     length: {maximum: Settings.max_lenght_email}
@@ -13,7 +13,7 @@ class Customer < ApplicationRecord
   has_secure_password
   before_save :downcase_email
   before_create :create_activation_digest
-  scope :odering, ->{order(created_at: :desc)}
+  scope :newest, ->{order(created_at: :desc)}
 
   class << self
     def digest string

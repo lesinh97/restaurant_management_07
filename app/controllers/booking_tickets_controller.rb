@@ -51,10 +51,10 @@ class BookingTicketsController < ApplicationController
 
   def load_booking_ticket
     @booking_tickets = if current_customer.admin?
-                         BookingTicket.odering.paginate page: params[:page],
+                         BookingTicket.newest.paginate page: params[:page],
                            per_page: Settings.booking_per_page
                        else
-                         current_customer.booking_tickets.odering.paginate page: params[:page],
+                         current_customer.booking_tickets.newest.paginate page: params[:page],
                            per_page: Settings.booking_per_page
                        end
     return if @booking_tickets

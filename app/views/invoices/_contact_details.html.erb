@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-xs-5">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h4><%= t "pay_detail_header" %></h4>
+      </div>
+      <div class="panel-body">
+        <p><%= t "pay_mail" %></p>
+        <p><%= t "bank_name" %></p>
+        <p><%= t "pay_owner" %></p>
+        <p><%= t "card_number", numb: Settings.fake_card %></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-7">
+    <div class="span7">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h4><%= t "contact_pay_header" %></h4>
+        </div>
+        <div class="panel-body">
+          <p>
+            <%= t "contact_pay_mail", mail: Settings.fake_mail %><br><br>
+            <%= t "mobile_pay", phone: Settings.fake_phone %><br><br>
+            <%= t "github" %><%= link_to t("github_user"), "https://github.com/lesinh97" %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

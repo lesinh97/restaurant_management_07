@@ -8,3 +8,6 @@ booking_per_page: 5
 customer_per_page: 5
 date_time_format: "%d-%m-%Y"
 love_vote: 100
+fake_card: 3425-3425-1234-3424
+fake_mail: BarackObaTrump@russia.com
+fake_phone: 84 911 113 114

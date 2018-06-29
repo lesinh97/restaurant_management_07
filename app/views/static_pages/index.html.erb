@@ -15,7 +15,11 @@
         <h2><%= t "booking_section_header" %></h2>
         <p><%= t "booking_section_content" %></p>
         <% if logged_in? %>
-          <%= link_to t("booking_button"), booking_tickets_path, class: "btn btn-default btn-lg" %>
+          <% if current_customer.booking_tickets.any? %>
+            <%= link_to t("booking_button"), booking_tickets_path, class: "btn btn-default btn-lg" %>
+          <% else %>
+            <%= link_to t("booking_button"), new_booking_ticket_path, class: "btn btn-default btn-lg" %>
+          <% end %>
         <% else %>
           <%= link_to t("booking_button"), login_path(anchor: "sectionB"), class: "btn btn-default btn-lg" %>
         <% end %>

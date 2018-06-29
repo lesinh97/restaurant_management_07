@@ -48,8 +48,8 @@ class SessionsController < ApplicationController
     auth_email = bridge.info[:email]
     @customer = Customer.find_by email: auth_email.downcase
     if @customer.present?
-      log_in @user
-      redirect_to @user
+      log_in @customer
+      redirect_to @customer
     else
       redirect_to controller: :customers, action: :new, name: bridge.info.name,
         email: bridge.info.email
