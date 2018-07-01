@@ -1,20 +1,21 @@
-class Supports::Admins
-  attr_reader :admin
+module Supports
+  class Admins
+    attr_reader :admin
 
-  def booking_tickets
-    @booking_tickets = BookingTicket.all
-  end
+    def load_booking_tickets
+      @booking_tickets = BookingTicket.all.odering
+    end
 
-  def customers
-    @customers = Customer.all
-  end
+    def load_customers
+      @customers = Customer.all.odering
+    end
 
-  def room_types
-    @room_types = RoomType.all
-  end
+    def load_room_types
+      @room_types = RoomType.all.odering
+    end
 
-  def rooms
-    @rooms = Room.all
+    def load_rooms
+      @rooms = Room.all.odering
+    end
   end
 end
-

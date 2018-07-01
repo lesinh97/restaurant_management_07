@@ -64,7 +64,7 @@ en:
   booking_detail_header: "Booking Detail"
   start_date_table: "Start Date"
   end_date_table: "End date"
-  show_booking_table: "Show"
+  cancel_booking_table: "Cancel"
   check_in_lable: "Check in"
   check_out_lable: "Check out"
   adult: "Adult"
@@ -102,6 +102,10 @@ en:
   customer_dashboard: " Customers "
   income_dashboard: "Income"
   lastest_booking_dashboard: "Latest Booking"
+  no_room_available: "No more room available in this type"
+  new_room_link: "New room"
+  view_customer: "View them!"
+  view_booking: "See them!"
   admin:
     rooms:
       destroy:

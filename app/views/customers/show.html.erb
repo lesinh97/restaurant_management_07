@@ -8,9 +8,10 @@
       <blockquote>
         <p><%= @customer.name %></p> <small><cite title="Source Title"><%= @customer.country%>  <i class="glyphicon glyphicon-map-marker"></i></cite></small>
       </blockquote>
-      <p> <i class="glyphicon glyphicon-envelope"></i> <%= @customer.email %>
+      <p><i class="glyphicon glyphicon-envelope"></i> <%= @customer.email %>
         <br/><i class="glyphicon glyphicon-globe"></i> <%= @customer.booking_tickets.size %> total booking
-        <br/><i class="glyphicon glyphicon-gift"></i> <%= display_time_in_booking @customer.created_at %></p>
-      </div>
+        <br/><i class="glyphicon glyphicon-gift"></i> <%= display_time_in_booking @customer.created_at %>
+      </p>
     </div>
   </div>
+</div>

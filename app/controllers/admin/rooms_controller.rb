@@ -1,11 +1,10 @@
 module Admin
   class RoomsController < AdminsController
-    before_action :load_room, except: %i(new create)
-    before_action :logged_in_customer, :admin_customer, except: %i(index show)
+    before_action :admin_customer, except: %i(index show)
 
     def new
       @room = Room.new
-      @room_type = RoomType.all
+      @room_types = RoomType.all
     end
 
     def create

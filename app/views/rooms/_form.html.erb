@@ -18,7 +18,7 @@
             <%= f.text_field :description, class: "form-control" %>
           </div>
           <%= f.label t("room_type_label") %>
-          <%= f.select :room_type_id, options_for_select(load_room_type), class: "form-control" %>
+          <%= f.select :room_type_id, options_from_collection_for_select(@room_types, :id, :name), class: "form-control" %>
             <%= f.submit "Create", class: "btn" %>
           <% end %>
           <button class="btn btn-dark btn-lg"><%= link_to t("back_link"), rooms_path %></button>
