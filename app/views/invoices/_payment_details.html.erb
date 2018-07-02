@@ -1,0 +1,20 @@
+<div class="row text-right">
+  <div class="col-xs-2 col-xs-offset-8">
+    <p>
+      <strong>
+        <%= t "total_sub_index" %><br>
+        <%= t "tax_index" %><br>
+        <%= t "total_index" %><br>
+      </strong>
+    </p>
+  </div>
+  <div class="col-xs-2">
+    <p>
+      <strong>
+        <%= number_to_currency @invoice.total %><br>
+        <%= t "n_a" %><br>
+        <%= number_to_currency @invoice.total %><br>
+      </strong>
+    </p>
+  </div>
+</div>

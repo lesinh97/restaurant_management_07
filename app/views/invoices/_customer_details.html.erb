@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-xs-5">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4><%=t "from_invoice" %><%= t "main_title"%></h4>
+      </div>
+      <div class="panel-body">
+        <p>
+          <%= t "numb_address" %><br>
+          <%= t "city_address" %><br>
+          <%= t "country_address" %><br>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-5 col-xs-offset-2 text-right">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4><%= t "to_invoice" %><%= link_to @customer.name, @customer %></h4>
+      </div>
+      <div class="panel-body">
+        <p>
+          <%= @customer.address %><%= t "comma" %><%= @customer.country %><br>
+          <%= @customer.phone %><br>
+          <%= @customer.email %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

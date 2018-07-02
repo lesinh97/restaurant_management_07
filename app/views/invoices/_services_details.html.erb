@@ -1,0 +1,20 @@
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th><h4><%= t "services" %></h4></th>
+      <th><h4><%= t "room_types" %></h4></th>
+      <th><h4><%= t "numb_services" %></h4></th>
+      <th><h4><%= t "rate" %></h4></th>
+      <th><h4><%= t "sub_total" %></h4></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= t "nav_bar_bookin" %></td>
+      <td><%= @booking_ticket.room.room_type.name %></td>
+      <td class="text-right"><%= @booking_ticket.stay_day_number %></td>
+      <td class="text-right"><%= number_to_currency @booking_ticket.room.room_type.price %></td>
+      <td class="text-right"><%= number_to_currency @invoice.total %></td>
+    </tr>
+  </tbody>
+</table>

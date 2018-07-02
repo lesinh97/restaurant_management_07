@@ -1,0 +1,20 @@
+<tr>
+  <td class="td-custom">
+    <img class="pull-left img-circle nav-user-photo img-custom"
+    src="https://instagram.fdad1-1.fna.fbcdn.net/vp/0f7b8b4d888cec82370c658f091f5301/5BCC785C/t51.2885-15/sh0.08/e35/p640x640/33878297_182683552432151_5830953965914685440_n.jpg"/>  
+  </td>
+  <td>
+    <%= link_to t("invoice_no", id: invoice.id), invoice %>
+    <br><i class="fa fa-envelope"></i> <small class="text-muted"><%= invoice.customer.email %></small>
+  </td>
+  <td align="center">
+    <%= number_to_currency invoice.total %>
+  </td>
+  <td align="center">
+    <%= t "invoice_create_at" %><%= display_time_in_booking invoice.created_at %>
+    <br><small class="text-muted"><%= time_ago_in_words invoice.created_at %></small>
+  </td>
+  <td align="center">
+    <%= link_to t("print_invoice"), invoice, class: "btn btn-success" %>
+  </td>
+</tr>

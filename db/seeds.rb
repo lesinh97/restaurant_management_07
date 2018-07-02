@@ -25,7 +25,7 @@ end
     price: price)
 end
 20.times do |m|
-  room_numb = Faker::Military.dod_paygrade
+  room_numb = Faker::Military.unique.dod_paygrade
   position = Faker::NewGirl.quote
   description = Faker::StrangerThings.quote
   Room.create!(room_numb: room_numb,
@@ -54,5 +54,12 @@ end
   cus = Customer.find(customer_id)
   total_booking = cus.booking_tickets.size
   cus.update_attributes(total_booking: total_booking)
+end
+9.times do |l|
+  customer_id = l+1
+  cus = Customer.find(customer_id)
+  booking_ticket_id = cus.booking_tickets.ids[0]
+  total = cus.booking_tickets.sum(:total_price)
+  Invoice.create!(customer_id: customer_id, booking_ticket_id: booking_ticket_id, total: total)
 end
 

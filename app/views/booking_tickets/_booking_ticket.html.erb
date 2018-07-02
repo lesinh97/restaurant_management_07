@@ -6,7 +6,11 @@
     <td><%= display_time_in_booking booking_ticket.start_day %></td>
     <td><%= display_time_in_booking booking_ticket.end_day %></td>
     <td><%= calculate_total_price booking_ticket %></td>
-    <td><%= link_to t("cancel_booking_table"), @booking_ticket, class: "btn btn-danger btn-xs" %></td>
+    <td><%= link_to t("create_invoice_booking_table"),
+      new_invoice_path(booking_ticket_id: booking_ticket.id, customer_id: booking_ticket.customer.id,
+      total: booking_ticket.total_price),
+      class: "btn btn-danger btn-xs" %>
+    </td>
   </tr>
   <% else %>
   <tr>
@@ -16,6 +20,10 @@
     <td><%= display_time_in_booking booking_ticket.start_day %></td>
     <td><%= display_time_in_booking booking_ticket.end_day %></td>
     <td><%= calculate_total_price booking_ticket %></td>
-    <td><%= link_to t("cancel_booking_table"), @booking_ticket, class: "btn btn-danger btn-xs" %></td>
+    <td><%= link_to t("create_invoice_booking_table"),
+      new_invoice_path(booking_ticket_id: booking_ticket.id, customer_id: booking_ticket.customer.id,
+      total: booking_ticket.total_price),
+      class: "btn btn-danger btn-xs" %>
+    </td>
   </tr>
 <% end %>
