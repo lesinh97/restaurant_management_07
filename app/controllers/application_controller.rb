@@ -20,6 +20,6 @@ class ApplicationController < ActionController::Base
   end
 
   def calculate_total_price booking_ticket
-    number_to_currency caculate_price booking_ticket.room.room_type.price, booking_ticket.stay_day_number.to_f
+    caculate_price booking_ticket.room.room_type.price.to_f, booking_ticket.stay_day_number.to_f
   end
 end

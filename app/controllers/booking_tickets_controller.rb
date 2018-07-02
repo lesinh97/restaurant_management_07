@@ -1,6 +1,7 @@
 class BookingTicketsController < ApplicationController
   before_action :logged_in_customer
   before_action :load_booking_ticket
+  before_action :load_invidual_ticket, only: %i(change_status cancel destroy)
   def index
     load_booking_ticket
   end
@@ -26,10 +27,30 @@ class BookingTicketsController < ApplicationController
 
   def destroy
     respond_to do |format|
-      status = @room.deleted! ? :success : :danger
-      flash[status] = t ".destroy.#{status}"
-      format.html{redirect_to booking_tickets_path}
+      status = @ticket.destroy ? :success : :danger
+      flash[status] = t ".#{status}"
+      format.html{render :index}
     end
+  end
+
+  def change_status
+    if @ticket.update_attributes(status: :accetped) && @ticket.room.update_attributes(available: false)
+      flash.now[:success] = t "success_change_status"
+    else
+      flash.now[:danger] = t "fail_change_status"
+    end
+    respond_to do |format|
+      format.html{render :index}
+    end
+  end
+
+  def cancel
+    if @ticket.update_attributes(status: :cancel) && @ticket.room.update_attributes(available: true)
+      flash[:success] = t "cancel_success"
+    else
+      flash[:danger] = t "cancel_fail"
+    end
+    redirect_to booking_tickets_path
   end
 
   private
@@ -61,6 +82,11 @@ class BookingTicketsController < ApplicationController
     redirect_to new_booking_ticket_path
   end
 
+  def load_invidual_ticket
+    @ticket = BookingTicket.find_by id: params[:id]
+    redirect_to booking_tickets_path unless @ticket
+  end
+
   def booking_ticket_params
     params.require(:booking_ticket).permit :room_id, :start_day, :end_day
   end
@@ -75,10 +101,10 @@ class BookingTicketsController < ApplicationController
 
   def handle_booking_successful
     stay_day_number = caculate_stay_day @booking_ticket
-    @booking_ticket.room.update_attributes available: false
-    @booking_ticket.update_attributes stay_day_number: stay_day_number,
-      total_price: calculate_total_price(@booking_ticket)
-    current_customer.update_attributes total_booking: caculate_total_booking(current_customer)
+    return unless @booking_ticket.update_attributes stay_day_number: stay_day_number
+    total_price = calculate_total_price(@booking_ticket).to_f
+    return unless @booking_ticket.update_attributes total_price: total_price
+    return unless current_customer.update_attributes total_booking: caculate_total_booking(current_customer)
     redirect_to booking_tickets_path
     flash.now[:success] = t "book_successful"
   end

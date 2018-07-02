@@ -15,7 +15,9 @@
     <br><small class="text-muted"><%= time_ago_in_words customer.created_at %></small>
   </td>
   <td align="center">
-    <%= link_to t("delete_customer_label"), customer, method: :delete,
-      data: {confirm: t("confirm_customer_delete")}, class: "btn btn-danger" %>
+    <% if customer.customer? %>
+      <%= link_to t("delete_customer_label"), admin_customer_path(customer), method: :delete,
+        data: {confirm: t("confirm_customer_delete")}, class: "btn btn-danger" %>
+    <% end %>
   </td>
 </tr>
