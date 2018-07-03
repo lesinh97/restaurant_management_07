@@ -83,7 +83,7 @@ a:focus {
 }
 
 .navbar-custom a {
-  color: #fff;
+  color: #000;
 }
 
 .navbar-custom .nav li a {
@@ -121,7 +121,7 @@ a:focus {
     padding: 20px 0;
     border-bottom: 0;
     letter-spacing: 1px;
-    background: 0 0;
+    background: #4DACF5;
     -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
     -moz-transition: background .5s ease-in-out,padding .5s ease-in-out;
     transition: background .5s ease-in-out,padding .5s ease-in-out;
@@ -252,7 +252,7 @@ a:focus {
 }
 
 .content-section {
-  padding-top: 100px;
+  padding-top: 50px;
 }
 
 .booking-section {
@@ -278,7 +278,7 @@ a:focus {
 
 @media(min-width:767px) {
   .content-section {
-    padding-top: 250px;
+    padding-top: 150px;
   }
 
   .download-section {

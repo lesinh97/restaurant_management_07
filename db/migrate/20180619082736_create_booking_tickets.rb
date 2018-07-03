@@ -6,7 +6,7 @@ class CreateBookingTickets < ActiveRecord::Migration[5.1]
       t.datetime :start_day
       t.datetime :end_day
       t.integer :stay_day_number
-      t.integer :status, default: 1
+      t.integer :status, default: 0
       t.timestamps
     end
   end
