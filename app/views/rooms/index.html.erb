@@ -1,11 +1,13 @@
-<div class="services">
-  <div class="container">
-    <div class="services-top heading">
-      <h3><%= t "room_types" %></h3>
-    </div>
-    <div class="services-bottom">
-      <%= render @rooms %>
-      <%= will_paginate @rooms, renderer: BootstrapPagination::Rails %>
+<section id="room-index" class="container content-section text-center">
+  <div class="services">
+    <div class="container">
+      <div class="services-top heading">
+        <h3><%= t "room_types" %></h3>
+      </div>
+      <div class="services-bottom">
+        <%= render @rooms %>
+        <%= will_paginate @rooms, renderer: BootstrapPagination::Rails %>
+      </div>
     </div>
   </div>
-</div>
+</section>

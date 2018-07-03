@@ -149,6 +149,7 @@ en:
   success_room_change_status: "Changed this room status"
   fail_room_change_status: "Can't change this room status"
   no_room_found: "No room founded"
+  source_title: "Source Title"
   admin:
     rooms:
       destroy:
