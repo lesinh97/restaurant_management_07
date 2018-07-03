@@ -38,7 +38,7 @@ end
   start_date = DateTime.now
   end_date =  Faker::Date.forward(z)
   numb_of_date = (end_date-start_date).to_i
-  status = rand(4)
+  status = rand(2)
   room_id = 9-z
   booking_ticket_id = z+1
   room = Room.find(room_id)

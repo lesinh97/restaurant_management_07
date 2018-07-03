@@ -14,7 +14,15 @@ Rails.application.routes.draw do
 
   resources :account_activations, only: :edit
   resources :rooms, only: %i(index show)
-  resources :booking_tickets
+
+  resources :booking_tickets do
+    member do
+      patch :change_status
+      patch :cancel
+      put :change_status
+      put :cancel
+    end
+  end
 
   get "/auth/:provider/callback", to: "sessions#create"
   get "auth/failure", to: redirect("/")
@@ -25,6 +33,12 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :rooms, except: %i(index show)
+    resources :rooms do
+      member do
+        patch :change_status
+        put :change_status
+      end
+    end
     resources :customers, only: %i(destroy index)
   end
 

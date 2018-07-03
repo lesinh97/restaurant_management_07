@@ -7,7 +7,8 @@ module Admin
     end
 
     def destroy
-      flash = @customer.deleted! ? :success : :danger
+      @customer = Customer.find_by id: params[:id]
+      flash = @customer.destroy ? :success : :danger
       flash[flash] = t "destroy.#{flash}"
     end
   end

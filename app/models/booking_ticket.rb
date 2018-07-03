@@ -1,5 +1,5 @@
 class BookingTicket < ApplicationRecord
-  enum status: {cancel: 0, accetped: 1, waitting: 2, rejected: 3}
+  enum status: {cancel: 2, accetped: 1, waitting: 0}
   belongs_to :customer
   belongs_to :room
   has_many :invoices, dependent: :delete_all

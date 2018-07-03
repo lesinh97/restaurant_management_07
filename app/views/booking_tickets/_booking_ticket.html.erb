@@ -1,29 +1,52 @@
 <% if current_customer.admin? %>
   <tr>
     <td><%= booking_ticket.customer.name %></td>
-    <td><%= booking_ticket.room.room_numb %></td>
+    <% if booking_ticket.accetped? %>
+      <td><button class="btn btn-success btn-xs"><%= booking_ticket.room.room_numb %></button></td>
+    <% else %>
+      <% if booking_ticket.waitting? %>
+        <td><%= link_to booking_ticket.room.room_numb, change_status_booking_ticket_path(booking_ticket),
+          method: :put, class: "btn btn-warning btn-xs" %></td>
+      <% else %>
+        <% if booking_ticket.cancel? %>
+          <td><button class="btn btn-danger btn-xs"><%= booking_ticket.room.room_numb %></button></td>
+        <% end %>
+      <% end %>
+    <% end %>
     <td><%= booking_ticket.room.room_type.name %></td>
     <td><%= display_time_in_booking booking_ticket.start_day %></td>
     <td><%= display_time_in_booking booking_ticket.end_day %></td>
-    <td><%= calculate_total_price booking_ticket %></td>
+    <td><%= number_to_currency calculate_total_price booking_ticket %></td>
     <td><%= link_to t("create_invoice_booking_table"),
-      new_invoice_path(booking_ticket_id: booking_ticket.id, customer_id: booking_ticket.customer.id,
+    new_invoice_path(booking_ticket_id: booking_ticket.id, customer_id: booking_ticket.customer.id,
       total: booking_ticket.total_price),
-      class: "btn btn-danger btn-xs" %>
+    class: "btn btn-success btn-xs" %> <%= link_to "Cancle", cancel_booking_ticket_path(booking_ticket),
+      method: :patch, data: {confirm: "Really?"}, class: "btn btn-danger btn-xs"%>
     </td>
   </tr>
-  <% else %>
+<% else %>
   <tr>
     <td><%= current_customer.name %></td>
-    <td><%= booking_ticket.room.room_numb %></td>
+    <% if booking_ticket.accetped? %>
+      <td><button class="btn btn-success btn-xs"><%= booking_ticket.room.room_numb %></button></td>
+    <% else %>
+      <% if booking_ticket.waitting? %>
+        <td><button class="btn btn-warning btn-xs"><%= booking_ticket.room.room_numb %></button></td>
+      <% else %>
+        <% if booking_ticket.cancel? %>
+          <td><button class="btn btn-danger btn-xs"><%= booking_ticket.room.room_numb %></button></td>
+        <% end %>
+      <% end %>
+    <% end %>
     <td><%= booking_ticket.room.room_type.name %></td>
     <td><%= display_time_in_booking booking_ticket.start_day %></td>
     <td><%= display_time_in_booking booking_ticket.end_day %></td>
-    <td><%= calculate_total_price booking_ticket %></td>
+    <td><%= number_to_currency calculate_total_price booking_ticket %></td>
     <td><%= link_to t("create_invoice_booking_table"),
-      new_invoice_path(booking_ticket_id: booking_ticket.id, customer_id: booking_ticket.customer.id,
+    new_invoice_path(booking_ticket_id: booking_ticket.id, customer_id: booking_ticket.customer.id,
       total: booking_ticket.total_price),
-      class: "btn btn-danger btn-xs" %>
+    class: "btn btn-success btn-xs" %> <%= link_to "Cancle", booking_ticket, method: :delete,
+      data: {confirm: "Really?"}, class: "btn btn-danger btn-xs"%>
     </td>
   </tr>
 <% end %>

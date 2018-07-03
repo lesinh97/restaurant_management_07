@@ -140,6 +140,15 @@ en:
   make_invocie_table: "Make invoice"
   print_invoice: "Print this!"
   comma: ", "
+  success_change_status: "Successfully changed the booking status"
+  fail_change_status: "Can't change this booking status"
+  cancel_success: "Successfully canceled this booking!"
+  cancel_fail: "Can't cancel this booking!"
+  available: Available
+  not_available: "Not available"
+  success_room_change_status: "Changed this room status"
+  fail_room_change_status: "Can't change this room status"
+  no_room_found: "No room founded"
   admin:
     rooms:
       destroy:
@@ -152,3 +161,7 @@ en:
   customers:
     nil_customer: "Can not found customers"
   footer: "2018 Le Dinh Sinh"
+  booking_tickets:
+    destroy:
+      success: "Successfully cancle this booking"
+
