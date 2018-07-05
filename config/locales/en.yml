@@ -73,8 +73,8 @@ en:
   owner_name_label: "Booked by"
   room_no: "Room number"
   ticket_price: "Total price"
-  create_booking_butt: "Book me please"
-  cancel_booking_butt: "Cancle"
+  create_booking_butt: "Book it! "
+  cancel_booking_butt: "Cancle it!"
   book_successful: "Thanks for joining with us!"
   auth_success: "Welcome %{mail} to our hotel!"
   auth_failed: "Can authenticate your facebook account with us!"
@@ -165,4 +165,12 @@ en:
   booking_tickets:
     destroy:
       success: "Successfully cancle this booking"
-
+  activerecord:
+    attributes:
+      booking_ticket:
+        start_day: "Checkin day"
+        end_day: "Checkout day"
+      room:
+        attributes:
+          room_id:
+            blank: "is no available now. Please choose another room"
