@@ -20,7 +20,7 @@
     <p><%= room.room_type.name %> <%= number_to_currency room.room_type.price %><br><br>
     <% if room.available? %>
       <% if current_customer.admin? %>
-        <%=link_to t("available"), change_status_admin_room_path(room), method: :put, class: "btn btn-success" %>
+        <%=link_to t("available"), change_status_admin_room_path(room), id: "change_button", method: :put, class: "btn btn-success" %>
       <% else %>
         <button class="btn btn-success"><%= t "available" %></button>
       <% end %>

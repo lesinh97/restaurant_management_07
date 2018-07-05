@@ -2,6 +2,7 @@ class BookingTicketsController < ApplicationController
   before_action :logged_in_customer
   before_action :load_booking_ticket
   before_action :load_invidual_ticket, only: %i(change_status cancel destroy)
+  before_action :load_room_type, only: :create
   def index
     load_booking_ticket
   end
@@ -66,7 +67,6 @@ class BookingTicketsController < ApplicationController
       @rooms[0].booking_tickets << @booking_ticket
     else
       flash[:danger] = t "no_room_available"
-      render :new
     end
   end
 
@@ -85,6 +85,10 @@ class BookingTicketsController < ApplicationController
   def load_invidual_ticket
     @ticket = BookingTicket.find_by id: params[:id]
     redirect_to booking_tickets_path unless @ticket
+  end
+
+  def load_room_type
+    @room_types = RoomType.newest
   end
 
   def booking_ticket_params
