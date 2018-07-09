@@ -13,7 +13,8 @@ class Customer < ApplicationRecord
   has_secure_password
   before_save :downcase_email
   before_create :create_activation_digest
-  scope :newest, ->{order(created_at: :desc)}
+  scope :newest, ->{order created_at: :desc}
+  scope :atoz, ->{order name: :asc}
 
   class << self
     def digest string
