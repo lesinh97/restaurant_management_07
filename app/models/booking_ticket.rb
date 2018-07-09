@@ -7,6 +7,7 @@ class BookingTicket < ApplicationRecord
   validates :end_day, presence: true
   validate :check_overlapping
   scope :newest, ->{order(created_at: :desc)}
+  scope :search_by_customer_name, ->(name){joins(:customer).where("customers.id LIKE ?", "%#{name}%")}
 
   def check_overlapping
     return if start_day.nil? && end_day.nil?

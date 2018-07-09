@@ -1,3 +1,4 @@
+<%= javascript_include_tag "search_booking" %>
 <section id="bookings" class="container content-section "><div id="wrap">
   <div id="main" class="container clear-top">
     <div class = "booking">
@@ -8,6 +9,13 @@
         <div class="panel-body">
           <div class="row">
             <div class=" col-md-12 col-lg-12 ">
+              <%= form_tag booking_tickets_path, method: "get", id: "search-form" do %>
+                <%= select_tag :search, options_for_select(@customer_list, :name),
+                  id: "search-box", prompt: "By name", class: "col-md-6 btn btn-default" %>
+                <%= button_tag(type: :submit, class: "btn btn-search btn-success") do %>
++                 <i class="fa fa-search"></i>
+                <% end %>
+              <% end %>
               <table class="table table-user-information">
                 <thead>
                   <tr>
@@ -19,7 +27,9 @@
                     <th><%= t "ticket_price" %></th>
                     <th><%= t "make_invocie_table" %></th>
                     </tr>
-                    <%= render @booking_tickets %>
+                    <section id="section-booking">
+                      <%= render @booking_tickets %>
+                    </section>
                   </thead>
                 </table>
                 <%= will_paginate @booking_tickets, renderer: BootstrapPagination::Rails %>

@@ -3,8 +3,17 @@ class BookingTicketsController < ApplicationController
   before_action :load_booking_ticket
   before_action :load_invidual_ticket, only: %i(change_status cancel destroy)
   before_action :load_room_type, only: :create
+  before_action :load_customer_list, only: :index
   def index
-    load_booking_ticket
+    if params[:search]
+      query_search
+      respond_to do |format|
+        format.html
+        format.js
+      end
+    else
+      load_booking_ticket
+    end
   end
 
   def show; end
@@ -70,23 +79,6 @@ class BookingTicketsController < ApplicationController
     end
   end
 
-  def load_booking_ticket
-    @booking_tickets = if current_customer.admin?
-                         BookingTicket.newest.paginate page: params[:page],
-                           per_page: Settings.booking_per_page
-                       else
-                         current_customer.booking_tickets.newest.paginate page: params[:page],
-                           per_page: Settings.booking_per_page
-                       end
-    return if @booking_tickets
-    redirect_to new_booking_ticket_path
-  end
-
-  def load_invidual_ticket
-    @ticket = BookingTicket.find_by id: params[:id]
-    redirect_to booking_tickets_path unless @ticket
-  end
-
   def load_room_type
     @room_types = RoomType.newest
   end
@@ -111,5 +103,10 @@ class BookingTicketsController < ApplicationController
     return unless current_customer.update_attributes total_booking: caculate_total_booking(current_customer)
     redirect_to booking_tickets_path
     flash.now[:success] = t "book_successful"
+  end
+
+  def query_search
+    @booking_tickets = BookingTicket.search_by_customer_name(params[:search]).paginate page: params[:page],
+                        per_page: Settings.booking_per_page
   end
 end
