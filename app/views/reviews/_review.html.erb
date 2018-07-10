@@ -1,0 +1,33 @@
+<div id="review-<%= review.id %>">
+  <%= stylesheet_link_tag "comment" %>
+  <% if logged_in? %>
+  <div class="comments-container">
+    <ul id="comments-list" class="comments-list">
+      <li>
+        <div class="comment-main-level">
+          <!-- Avatar -->
+          <div class="comment-avatar"><%= image_tag("jun.jpg", alt:"", class: "img-rounded img-responsive") %></div>
+          <!-- Contenedor del Comentario -->
+          <div class="comment-box">
+            <div class="comment-head">
+              <h6 class="comment-name by-author"><%= link_to review.customer.name %></h6>
+              <span><%= time_ago_in_words review.created_at %></span>
+              <i class="fa fa-reply"></i>
+              <i class="fa fa-heart"></i>
+              <% if logged_in? && (current_customer?(review.customer) || current_customer.admin?) %>
+                <%= link_to review, method: :delete, data: {confirm: t("review_del_confirm")},
+                remote: true, class:"float-right btn btn-outline-primary ml-2" do %>
+                <span class="fa fa-trash"></span>
+                <% end %>
+              <% end %>
+            </div>
+            <div class="comment-content">
+              <%= review.content %>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <% end %>
+</div>

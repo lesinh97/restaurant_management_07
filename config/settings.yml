@@ -12,3 +12,4 @@ fake_card: 3425-3425-1234-3424
 fake_mail: BarackObaTrump@russia.com
 fake_phone: 84 911 113 114
 local_host: "localhost:3000"
+row_review: 1

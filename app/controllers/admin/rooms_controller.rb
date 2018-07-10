@@ -1,7 +1,7 @@
 module Admin
   class RoomsController < AdminsController
     before_action :admin_customer, except: %i(index show)
-    before_action :load_invidual_room, only: %i(edit change_status)
+    before_action :load_invidual_room, only: %i(edit change_status update)
 
     def new
       @room = Room.new
@@ -70,6 +70,11 @@ module Admin
       @room = Room.find_by id: params[:id]
       return if @room
       flash[:success] = t "no_room_found"
+    end
+
+    def room_params
+      params.require(:room).permit :room_id, :room_numb, :position, :description, :available,
+        :room_type_id
     end
   end
 end

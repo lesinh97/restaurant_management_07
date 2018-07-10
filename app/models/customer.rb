@@ -5,6 +5,7 @@ class Customer < ApplicationRecord
   attr_accessor :remember_token, :activation_token, :reset_token
   has_many :booking_tickets, dependent: :delete_all
   has_many :invoices, dependent: :delete_all
+  has_many :reviews, dependent: :delete_all
   validates :email, format: {with: VALID_EMAIL}
   validates :email, presence: true, uniqueness: {case_sensitive: false},
     length: {maximum: Settings.max_lenght_email}

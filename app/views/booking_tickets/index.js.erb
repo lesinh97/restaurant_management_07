@@ -1,1 +1,1 @@
-+$('.section-booking').html('<%= escape_javascript(render(@booking_tickets)) %>');
+$('#section-booking').html('<%= j render partial: "booking_tickets/booking_ticket", collection: @booking_tickets %>');

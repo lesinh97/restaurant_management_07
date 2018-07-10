@@ -8,3 +8,17 @@
     </div>
   </div>
 </section>
+<div class="div-review-form">
+  <%= render "review_form" %>
+</div>
+<% if @reviews.any? %>
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-body div-review">
+          <%= render @reviews %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

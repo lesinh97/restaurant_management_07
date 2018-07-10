@@ -36,7 +36,7 @@ end
 end
 9.times do |z|
   start_date = DateTime.now
-  end_date =  Faker::Date.forward(z)
+  end_date =  Faker::Date.forward(z+1)
   numb_of_date = (end_date-start_date).to_i
   status = rand(2)
   room_id = 9-z
@@ -62,4 +62,9 @@ end
   total = cus.booking_tickets.sum(:total_price)
   Invoice.create!(customer_id: customer_id, booking_ticket_id: booking_ticket_id, total: total)
 end
-
+9.times do |c|
+  customer_id = c+1
+  room_id = rand(19)
+  content = Faker::Dota.quote
+  Review.create!(customer_id: customer_id, room_id: room_id, content: content)
+end

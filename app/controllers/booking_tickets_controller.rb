@@ -5,7 +5,7 @@ class BookingTicketsController < ApplicationController
   before_action :load_room_type, only: :create
   before_action :load_customer_list, only: :index
   def index
-    if params[:search]
+    if params[:customer_id]
       query_search
       respond_to do |format|
         format.html
@@ -49,9 +49,7 @@ class BookingTicketsController < ApplicationController
     else
       flash.now[:danger] = t "fail_change_status"
     end
-    respond_to do |format|
-      format.html{render :index}
-    end
+    redirect_to booking_tickets_path
   end
 
   def cancel
@@ -106,7 +104,7 @@ class BookingTicketsController < ApplicationController
   end
 
   def query_search
-    @booking_tickets = BookingTicket.search_by_customer_name(params[:search]).paginate page: params[:page],
+    @booking_tickets = BookingTicket.search_by_customer_name(params[:customer_id]).paginate page: params[:page],
                         per_page: Settings.booking_per_page
   end
 end

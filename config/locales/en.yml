@@ -150,6 +150,15 @@ en:
   fail_room_change_status: "Can't change this room status"
   no_room_found: "No room founded"
   source_title: "Source Title"
+  review_failed: "This room cannot be reviewed!"
+  delete_failed_review: "This review cannot be deleted!"
+  no_review: "This room is not reviewed yet!"
+  load_room_failed: "No room"
+  review_holder: "Share your thoughts about this room!"
+  review_header: "Review this room!"
+  share_button: "Share "
+  reviews: "Customers's thoughts"
+  review_del_confirm: "Why you have to delete this review ?"
   admin:
     rooms:
       destroy:
