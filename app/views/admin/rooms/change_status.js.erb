@@ -1,0 +1,6 @@
+<% if room.available? %>
+  $(".room-<%= room.id %> > a").html('Enabled').removeClass('btn-warning').addClass('btn-success')
+<% else %>
+  $(".room-<%= room.id %> > a").html('Disabled').removeClass('btn-success').addClass('btn-warning')
+<% end %>
+$("#room-status-<%= room.id %>").html("<%= room.enabled %>")

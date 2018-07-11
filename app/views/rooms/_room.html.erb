@@ -18,6 +18,7 @@
    <div class="col-lg-6 col-md-4 col-sm-6">
     <p><%= room.description %></p>
     <p><%= room.room_type.name %> <%= number_to_currency room.room_type.price %><br><br>
+      <div id="room-<%= room.id %>">
     <% if room.available? %>
       <% if current_customer.admin? %>
         <%=link_to t("available"), change_status_admin_room_path(room), id: "change_button", method: :put, class: "btn btn-success" %>
@@ -36,6 +37,7 @@
         <%= link_to t("delete_room_label"), admin_room_path(room), method: :delete,
           data: {confirm: t("confirm_room_delete")}, class: "btn btn-danger" %>
     <% end %>
+  </div>
   </div>
 </div>
 </div>

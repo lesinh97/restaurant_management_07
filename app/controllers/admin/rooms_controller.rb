@@ -44,7 +44,8 @@ module Admin
         not_available_status
       end
       respond_to do |format|
-        format.html{redirect_to rooms_path}
+        format.html
+        format.js
       end
     end
 
